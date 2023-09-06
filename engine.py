@@ -10,7 +10,7 @@ class Engine(ABC):
 
 class CapuletEngine(Engine):
 
-    def __init__(self, last_service_mileage, current_mileage):
+    def __init__(self, current_mileage, last_service_mileage):
         self.last_service_mileage = last_service_mileage
         self.current_mileage = current_mileage
 
@@ -26,8 +26,8 @@ class WilloughbyEngine(Engine):
         self.current_mileage = current_mileage
 
     def needs_service(self) -> bool:
-        distance_since_service = self.current_mileage - self.last_service_mileage
-        return distance_since_service > 30000
+        distance_since_service = self.last_service_mileage - self.current_mileage
+        return distance_since_service > 60000
 
 
 class SternmanEngine(Engine):
