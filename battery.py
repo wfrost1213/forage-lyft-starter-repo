@@ -16,7 +16,7 @@ class SpindleBattery(Battery):
 
     def needs_service(self) -> bool:
         years = self.current_date.year - self.last_service_date.year
-        return years > 2
+        return years > 3
 
 
 class NubbinBattery(Battery):
